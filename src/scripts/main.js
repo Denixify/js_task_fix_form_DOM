@@ -1,6 +1,6 @@
 'use strict';
 
-const formInputs = document.querySelectorAll('input');
+const formInputs = document.querySelectorAll('form input');
 
 function capitalize(text) {
   if (!text) {
@@ -12,16 +12,15 @@ function capitalize(text) {
 
 formInputs.forEach((input) => {
   const nameValue = input.name;
-  const labelText = nameValue.toUpperCase();
-  const placeholderText = capitalize(nameValue);
+  const formattedText = capitalize(nameValue);
 
-  input.placeholder = placeholderText;
+  input.placeholder = formattedText;
 
   const label = document.createElement('label');
 
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
-  label.textContent = labelText;
+  label.textContent = formattedText;
 
   input.parentElement.prepend(label);
 });
